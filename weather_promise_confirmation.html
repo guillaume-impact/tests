@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6; /* Light greenish-gray background */
+            color: #333;
+        }
+        .confirmation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensures child elements like iframe don't break rounded corners */
+        }
+        .header-banner {
+            background-color: #22c55e; /* Tailwind green-500 */
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .header-banner h1 {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+        }
+        .content-section {
+            padding: 2rem;
+        }
+        .booking-details p {
+            margin-bottom: 0.75rem; /* mb-3 */
+            font-size: 1.125rem; /* text-lg */
+        }
+        .booking-details strong {
+            color: #16a34a; /* Tailwind green-600 */
+        }
+        .iframe-section {
+            margin-top: 2rem; /* mt-8 */
+            padding-top: 1.5rem; /* pt-6 */
+            border-top: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        .iframe-section h2 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 1rem; /* mb-4 */
+            color: #1f2937; /* text-gray-800 */
+        }
+        /* Styling for the iframe */
+        #weatherPromiseIframe {
+            width: 100%;
+            /*
+              The widget in the screenshot is roughly 360px wide and 430px tall.
+              Setting a fixed height. If the content within the iframe is taller,
+              it might get cut off or show internal scrollbars if the framed page allows.
+              Dynamically adjusting height for cross-origin iframes without cooperation
+              from the framed page is complex.
+            */
+            height: 450px; /* Adjusted height to ensure content visibility */
+            border: none; /* Equivalent to frameborder="0" */
+            overflow: hidden; /* Equivalent to scrolling="no" - this hides scrollbars on the iframe element itself */
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="header-banner">
+            <h1><span class="inline-block mr-2">🎉</span>Booking Confirmed!</h1>
+            <p class="mt-2 text-lg">Thank you for choosing us for your adventure!</p>
+        </div>
+
+        <div class="content-section">
+            <div class="booking-details mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Your Trip Details</h2>
+                <p>Hello <strong id="userName">Guillaume</strong>,</p>
+                <p>Your booking for <strong>Annecy</strong> from <strong id="startDate">Jun 22, 2025</strong> to <strong id="endDate">Jun 24, 2025</strong> is confirmed.</p>
+                <p>A confirmation email with all the details has been sent to <strong id="userEmail">guillaume.spillmann@impact.com</strong>.</p>
+                <p>Your Booking ID is: <strong id="bookingId">54867080099</strong>.</p>
+            </div>
+
+
+          
+          <div class="iframe-section"> 
+ <h2>Enhance Your Trip</h2> 
+ <p class="text-gray-600 mb-4">Consider adding WeatherPromise coverage to your booking for peace of mind:</p> <iframe id="weatherPromiseIframe" src="https://bronze-tulip-tomato.glitch.me/weather_promise.html?Click_URL=https%3A%2F%2Fpartners.spillmann.fr%2Fc%2F3692091%2F2976050%2F17492&amp;partner=3692091" title="Weather Promise Widget" scrolling="no" frameborder="0"> Your browser does not support iframes. Please visit the &amp;lt;a href="https://bronze-tulip-tomato.glitch.me/weather_promise.html?Click_URL=https%3A%2F%2Fpartners.spillmann.fr%2Fc%2F3692091%2F2976050%2F17492&amp;amp;partner=3692091" target="_blank"&amp;gt; Weather Promise page directly. &amp;lt;/a&amp;gt; </iframe> 
+</div> 
+<img height="0" width="0" src="https://imp.pxf.io/i/3692091/2976050/17492" style="position:absolute;visibility:hidden;" border="0">
+<img height="0" width="0" src="https://imp.pxf.io/i/3692091/2976050/17492" style="position:absolute;visibility:hidden;" border="0" />
+          
+            <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-150 ease-in-out mr-2">
+                    Manage Booking
+                </a>
+                <a href="#" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-150 ease-in-out">
+                    Explore More Trips
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional: You can use JavaScript to dynamically fill in details
+        // For example, if these were passed via URL parameters to this confirmation page
+        // document.getElementById('userName').textContent = "Jane Doe";
+        // document.getElementById('startDate').textContent = "December 1st, 2025";
+        // document.getElementById('endDate').textContent = "December 7th, 2025";
+        // document.getElementById('userEmail').textContent = "jane.doe@example.com";
+        // document.getElementById('bookingId').textContent = "WPZ987YQX";
+    </script>
+</body>
+</html>

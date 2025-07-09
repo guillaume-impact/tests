@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guillaume's tech challenge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript"> (function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://utt.impactcdn.com/A3689921-b8b5-4bc8-85a4-bbb9c6049d0b65535.js','script','ire',document,window);</script>
+    <!-- Start GTM head code -->
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MJ7S2ZX');</script>
+    <!-- End GTM head code -->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        #api {
+            background: #ffffff none repeat scroll 0 0;
+            border: 1px solid #aa8d56;
+            color: #aa8d56;
+            outline: medium none;
+            padding: 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #api:hover {
+            Background-color: #aa8d56;
+            Color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+  <script>// Build the conversion tag from the form parameters
+
+    let conversion = {
+      orderId: "",
+      customerId: "",
+      customerEmail: "",
+      customerStatus: "",
+      currencyCode: "",
+      orderPromoCode: "",
+      orderDiscount: 0,
+      items: []
+    }
+    let notInConvObject = ['unhashedCustomerEmail', 'trackerId', 'cartItems', 'items'];
+    var searchParams = new URLSearchParams(window.location.search);
+    searchParams.forEach(function(value, key) {
+      if (key == 'items' && value != '') {
+        console.log(atob(value));
+        conversion[key] = JSON.parse(atob(value));
+      }
+      if (value != '' && !notInConvObject.includes(key)) {
+        conversion[key] = value;
+      }
+    });
+    console.log(conversion);
+  </script>
+  <script type="text/javascript">
+    ire('trackConversion', searchParams.get('trackerId'),
+        conversion,
+        {
+        verifySiteDefinitionMatch:true
+        }
+    );
+  </script>
+
+    <!-- Start GTM body code -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ7S2ZX"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- End GTM body code -->
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;">
+
+        <!-- Automatic Slideshow Images -->
+        <div class="mySlides w3-display-container w3-center">
+            <a href="https://bronze-tulip-tomato.glitch.me/"><img src="https://cdn.glitch.global/b2dbfb9b-6dac-4da9-aa01-c0e24bb68d27/images_lac.jpeg?v=1665751915613" alt="Photo of Parmelan" style="width:100%"></a>
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Guillaume's test page</h3>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <a href="https://bronze-tulip-tomato.glitch.me/"><img src="https://cdn.glitch.global/b2dbfb9b-6dac-4da9-aa01-c0e24bb68d27/images_parmelan.jpeg?v=1665751953308" alt="Photo of Lake Annect" style="width:100%"></a>
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Guillaume's test page</h3>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <a href="https://bronze-tulip-tomato.glitch.me/"><img src="https://cdn.glitch.global/b2dbfb9b-6dac-4da9-aa01-c0e24bb68d27/images_veyrier.jpeg?v=1665751957654" alt="Photo from Mont Veyrier" style="width:100%"></a>
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Guillaume's test page</h3>
+            </div>
+        </div>
+
+        <!-- Main Section -->
+        <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+            <div id="api">
+                <h2 class="w3-wide">Click here to claim your free API call</h2>
+            </div>
+        </div>
+
+
+        <!-- End Page Content -->
+    </div>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+    <script>// Automatic Slideshow
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 5000);
+        }</script>
+
+    <!-- Start GTM dataLayer push -->
+    <script>// Getting the 'key' and 'value' parameters from the URL
+        //const params = new URLSearchParams(window.location.search);
+        //const key_param = params.get('key');
+        //const value_param = params.get('value');
+        // Depending on the use case, handling null values may be necessary here
+        //dataLayer.push({
+        //    key: key_param,
+        //  value: value_param
+        //});</script>
+    <!-- End GTM dataLayer push -->
+    <!-- Start API call -->
+    <script>
+        var clickableDiv = document.getElementById('api');
+        clickableDiv.addEventListener('click', function (e) {
+            // Reading the variables from the dataLayer
+            const key = google_tag_manager['GTM-MJ7S2ZX'].dataLayer.get('key');
+            const value = google_tag_manager['GTM-MJ7S2ZX'].dataLayer.get('value');
+            // Making the API call
+            const http = new XMLHttpRequest();
+            const url = 'https://httpbin.org/get?key='.concat(key, '&value=', value);
+            http.open("GET", url);
+            http.send();
+            http.onreadystatechange = (e) => { // When GET request is done
+                var status = http.status;
+                if (status >= 200 && status < 400) { // Filter for success and redirects
+                    console.log(http.responseText);
+                } else {
+                    console.error('Request to httpbin.org failed');
+                }
+            }
+        });</script>
+    <!-- End API call -->
+
+</body>
+</html>

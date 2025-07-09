@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>impact.com Consent Mode demo</title>
+  <script type="text/javascript">
+    (function(a,b,c,d,e,f,g){
+      e['ire_o']=c;e[c]=e[c]||function(){
+        (e[c].a=e[c].a||[]).push(arguments)
+      };
+      f=d.createElement(b);
+      g=d.getElementsByTagName(b)[0];
+      f.async=1;
+      f.src=a;
+      g.parentNode.insertBefore(f,g);
+    })('https://utt.impactcdn.com/A3689921-b8b5-4bc8-85a4-bbb9c6049d0b65535.js','script','ire',document,window);
+  </script>
+  <style>
+    .cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 600px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #333;
+      z-index: 1000;
+    }
+    .cookie-banner p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .cookie-banner a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .cookie-banner a:hover {
+      text-decoration: underline;
+    }
+    .cookie-banner button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .cookie-banner button:hover {
+      background-color: #0056b3;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://cdn.glitch.global/b2dbfb9b-6dac-4da9-aa01-c0e24bb68d27/back.png?v=1718883709910'); /* Why do it like this? To have a good-looking site all while minimizing the amount of Network traffic, to make the consent-related calls stand out */
+      background-size: 100% auto; /* Scale the image to fit the width of the viewport */
+      background-repeat: no-repeat;
+      background-position: top center; /* Center the image horizontally */
+      background-attachment: fixed;
+      color: white; /* Ensure text is readable on the background */
+    }
+  </style>
+</head>
+<body>
+  <script>ire('consent', 'default', {'tracking':'denied'});</script>
+  <script>ire('identify', {campaignId: '17492'});</script>
+  <div class="cookie-banner">
+    <p>This website uses cookies. By continuing to use this site, you consent to our use of cookies. <a href="#">Learn more</a>.</p>
+    <div>
+      <button onclick="cookiesAllowed()">Allow Cookies</button>
+      <button onclick="cookiesDenied()">Deny Cookies</button>
+    </div>
+  </div>
+
+  <script>
+    const cookieBanner = document.querySelector('.cookie-banner');
+    function cookiesAllowed() {
+      ire('consent', 'update', {'tracking':'granted'});
+      cookieBanner.style.display = 'none';
+    }
+
+    function cookiesDenied() {
+      ire('consent', 'update', {'tracking':'denied'});
+      cookieBanner.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

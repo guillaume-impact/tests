@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script type="text/javascript"> (function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://utt.impactcdn.com/A5528124-1970-4e76-8bf4-a5f55905ccf665535.js','script','ire',document,window); ire('identify', {customerid: '' /*INSERT CUSTOMER ID*/, customeremail: '' /*INSERT SHA1 HASHED CUSTOMER EMAIL*/}); </script>
+  </head> 
+  <body>
+<script>
+ /**
+*
+* This is a function to get the referral cookie value.
+* If your code already has a function to pull the cookie, this function would become optional.
+* This function would only need to be utilized in the user sign up flow
+*/
+
+
+window.impactOnReady = () => {
+
+
+// Store the JWT token on the window level.
+window.impactToken = "eyJhbGciOiJIUzI1NiIsImtpZCI6IklSQXhDOHlhR2Y0WjU1MjgxMjR4c25EaGpKa1ZZNjU1MzUifQ.eyJ1c2VyIjp7ImlkIjoiOTg3NjU0MzIxIiwiYWNjb3VudElkIjoiYm9iIiwiZW1haWwiOiJib2JAZXhhbXBsZS5jb20iLCJmaXJzdE5hbWUiOiJCb2IiLCJsYXN0TmFtZSI6IlNwaWxsbWFubiIsInJlZmVycmVkQnlDb2RlcyI6WyJCT0JURVNURVIiXX19.53G3DOszdZ-GbnNdTRREQbbwyRmlWVIiQ-NBpHeXlmM"
+
+
+// The userConfig will have the information of the user you wish to upsert
+// The cookies value will have the value of the cookie variable defined above.
+const userConfig = 
+{
+   "user": {
+             "id": "987654321",                      
+          "accountId": "bob",       
+          "email": 'bob@example.com',
+          "firstName": "Bob",
+          "lastName": "Spillmann"
+   // When upserting the user after editing their profile, you do not need to pass us the “cookies” value again. Only send the cookies value on sign up.
+   //"cookies": cookie
+   },
+   }
+
+
+
+
+window.impact.api().upsertUser(userConfig).then(function(response) {
+// The widget API automatically inserts the HTML for your widget into your page via an iFrame
+// However if needed, you can retrieve details about the upserted user and the widget HTML through this function response
+const user = response.user;
+}).catch(function(error){
+console.log(error);
+});
+}
+
+</script>
+      </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guillaume's tech challenge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KV3KPTT');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Start GTM head code -->
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MJ7S2ZX');</script>
+    <!-- End GTM head code -->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        #button {
+            background: #ffffff none repeat scroll 0 0;
+            border: 1px solid #aa8d56;
+            color: #aa8d56;
+            outline: medium none;
+            padding: 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #button:hover {
+            Background-color: #aa8d56;
+            Color: #ffffff;
+        }
+    </style>
+<script src="https://utt.impactcdn.com/A3689921-b8b5-4bc8-85a4-bbb9c6049d0b65535.js"></script>
+<script>ire('consent', 'default', {'tracking':'denied'});</script>
+          <script type="text/javascript">
+                   ire('identify', {customerId: '5789', customerEmail: '540eaba2b380230d615fee05e9030b90fcdec211', campaignId: '17492'});
+    </script>
+         <script type="text/javascript">
+                   //ire('identify', {customerId: '5789', customerEmail: '540eaba2b380230d615fee05e9030b90fcdec211', campaignId: '18986'});
+    </script>
+  
+</head>
+<body>
+
+
+    <script>
+      //Hash emails with SHA-1
+      function getHash(str, algo = "SHA-1") {
+      let strBuf = new TextEncoder().encode(str);
+      return crypto.subtle.digest(algo, strBuf)
+        .then(hash => {
+          window.hash = hash;
+          // here hash is an arrayBuffer, 
+          // so we'll connvert it to its hex version
+          let result = '';
+          const view = new DataView(hash);
+          for (let i = 0; i < hash.byteLength; i += 4) {
+            result += ('00000000' + view.getUint32(i).toString(16)).slice(-8);
+          }
+          return result;
+        });
+    }
+  </script>
+  <script>
+    function prepareFormData() {
+      //Encode cart data to avoidn URL encoding
+      var cart = window.document.getElementById('cartItems').value;
+      if (cart != '') {
+        window.document.getElementById('items').value = btoa(cart);
+      }
+      //Store values in a cookie to pre-populate future page loads
+      const data = new FormData(event.target);
+      const allFields = Object.fromEntries(data.entries());
+      bake_cookie('UTTGen', allFields, 7);
+    }
+  </script>
+  <script>
+    //Cookie management functions
+    function bake_cookie(name, value, days) {
+      var expires = "";
+      var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = cookie + expires;
+    }
+    function read_cookie(name) {
+     var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+     result && (result = JSON.parse(result[1]));
+     return result;
+    }
+
+    function erase_cookie(name) {   
+        //document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        bake_cookie(name, '', 0); //Somehow struggled with deleting the cookie, so setting to empty value instead
+        //Also clear values from the form currently displayed
+        document.getElementById("form").reset();
+        window.document.getElementById('hash').innerText = '';
+        window.document.getElementById('items').value = '';
+    }
+  </script>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;">
+
+        <!-- Main Section -->
+        <div id="sales">
+          <input id="clearValues" type="button" value="Clear Values" onclick="erase_cookie('UTTGen')" />
+          <form id="form" action="/conversion.html" method="get" onsubmit="prepareFormData()">
+            <label for="trackerId">trackerId*:</label><br>
+            <input type="text" id="trackerId" name="trackerId" required><br>
+            <label for="orderId">orderId:</label><br>
+            <input type="text" id="orderid" name="orderid"><br>
+            <label for="customerId">customerId:</label><br>
+            <input type="text" id="customerId" name="customerId"><br>
+            <label for="unhashedCustomerEmail">unhashedCustomerEmail:</label><br>
+            <input type="text" id="unhashedCustomerEmail" name="unhashedCustomerEmail" onblur="getHash().then(value => window.document.getElementById('customerEmail').value = value).then(value => window.document.getElementById('hash').innerText = ' SHA-1 hash is '+ value);"><span id="hash"></span><br>
+            <input type="hidden" id="customerEmail" name="customerEmail">
+            <label for="customerStatus">customerStatus:</label><br>
+            <input type="text" id="customerStatus" name="customerStatus"><br>
+            <label for="currencyCode">currencyCode:</label><br>
+            <input type="text" id="currencyCode" name="currencyCode"><br>
+            <label for="orderPromoCode">orderPromoCode:</label><br>
+            <input type="text" id="orderPromoCode" name="orderPromoCode"><br>
+            <label for="orderDiscount">orderDiscount:</label><br>
+            <input type="text" id="orderDiscount" name="orderDiscount"><br>
+            <label for="cartItems">Cart items:</label><br>
+            <textarea name="cartItems" id="cartItems" rows="10" cols="35"></textarea><br>
+            <input type="hidden" id="items" name="items">
+            <input id="button" type="submit" value="Submit">
+          </form>
+        </div>
+
+        <!-- End Page Content -->
+    </div>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+      <script>
+        //Pre-populate fields with previous values if cookie is found
+        cookie = read_cookie('UTTGen');
+        for (var key in cookie) {
+          if (cookie.hasOwnProperty(key)) {
+              if (key == 'cartItems') {continue;}
+              if (key == 'items') {window.document.getElementById('cartItems').value = atob(cookie[key])}
+              window.document.getElementById(key).value = cookie[key];
+          }
+        }
+        var unhashedCustomerEmail = window.document.getElementById('unhashedCustomerEmail').value;console.log(unhashedCustomerEmail);
+        if (unhashedCustomerEmail != "") {getHash().then(value => window.document.getElementById('hash').innerText = ' SHA-1 hash is '+ value);}
+        function startPolling(url, interval = 5000) { // Default interval to 5 seconds
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout(fetchData, interval); // Schedule next request
+    }
+  };
+
+  fetchData(); // Start initial request
+}
+
+// Example usage
+//startPolling('https://api.example.com/data');
+      </script>
+      <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV3KPTT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+</html>

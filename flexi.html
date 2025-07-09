@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guillaume's Flexi test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+  <div style="color: #2f2f2f; font-size:14px; width: 100%; padding-top: 5px; padding-bottom: 5px; text-align: center; background: #339900; background: -moz-linear-gradient(top, #66cc00, #339900); background: -webkit-gradient(linear, left top, left bottom, from(#66cc00), to(#339900)); background: -webkit-linear-gradient(top, #66cc00, #339900); background: -o-linear-gradient(top, #66cc00, #339900); background: linear-gradient(top, #66cc00, #339900); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66cc00', endColorstr='#339900');" class="b24bookingstrip">
+    <form method="POST" action="https://beds24.com/booking2.php">
+      <label>
+       Day
+        <select name="fdate_date" label="Date">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option> 
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select>
+      </label>
+    <label>
+      Month
+      <select name="fdate_monthyear">
+        <option value="2022-08">Aug 2022</option>
+        <option value="2022-09">Sep 2022</option>
+        <option value="2022-10">Oct 2022</option>
+        <option value="2022-11">Nov 2022</option>
+        <option value="2022-12">Dec 2022</option>
+        <option value="2024-01">Jan 2024</option>
+        <option value="2024-02">Feb 2024</option>
+        <option value="2024-03">Mar 2024</option>
+        <option value="2024-04">Apr 2024</option>
+        <option value="2024-05">May 2024</option>
+        <option value="2024-06">Jun 2024</option>
+        <option value="2024-07">Jul 2024</option>
+        <option value="2024-08">Aug 2024</option>
+        <option value="2024-09">Sep 2024</option>
+        <option value="2024-10">Oct 2024</option>
+        <option value="2024-11">Nov 2024</option>
+        <option value="2024-12">Dec 2024</option>
+        <option value="2023-01">Jan 2023</option>
+        <option value="2023-02">Feb 2023</option>
+        <option value="2023-03">Mar 2023</option>
+        <option value="2023-04">Apr 2023</option>
+        <option value="2023-05">May 2023</option>
+        <option value="2023-06">Jun 2023</option>
+        <option value="2023-07">Jul 2023</option>
+      </select>
+    </label>
+    <label>
+      Nights
+      <select name="numnight">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+    </label>
+    <label>
+      Guests
+      <select name="numadult">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </label>
+    <input type="hidden" name="propid" value="2035">
+    <input type="submit" value="Book Now">
+    </form></div>
+  <script>
+      var click_url = '';
+      var impression_url = '';
+      var searchParams = new URLSearchParams(window.location.search);
+      searchParams.forEach(function(value, key) {
+      if (key == 'Click_URL') {
+        click_url = value;
+        }
+      if (key == 'Impression_URL') {
+        impression_url = value;
+        }
+      if (key == 'itoken') {
+        payload = value.split('.')[1];
+        decoded = JSON.parse(atob(payload));
+        }
+      });
+      var ad = document.createElement('div');
+      var ad_array = ['This is a Flexi ad that tracks impressions</a><img src="', impression_url, '" width="1" height="1"><br>The click tracking URL is ', click_url, ', so I can track clicks as well'];
+      ad.innerHTML = ad_array.join('');
+      ad.innerHTML += `<br><br>This is an ad shown to partner <b>` + decoded['iaid'] + `</b> and for campaign <b>` + decoded['icid'] + `</b>. I know this because I decoded the JWT.`;
+      ad.innerHTML += `<br><br>TODO to complete the implementation:<br>- As the user fills the widget, take each field and build the destination URL with the value<br>- Encode the URL<br>- Pass it as "u=" param in tracking link<br>- Make the button redirect to the tracking link`;
+      var body = document.getElementsByTagName('body');
+      body[0].appendChild(ad);</script>
+</body>
+</html>

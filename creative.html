@@ -1,0 +1,21 @@
+<html>
+  <body>
+
+    <a id="creativeLink" href=""><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Ad-MediumRectangle-300x250.jpg" width="300" height="250"></a>
+   
+    
+    <script>// Get the tracking link from the iframe URL
+    var searchParams = new URLSearchParams(window.location.search);
+    searchParams.forEach(function(value, key) {
+      if (key == 'click') {
+        // Update the href of the creative to the tracking link
+        var clickURL = decodeURI(value) + '?utm_campaign=test';
+        var link = document.getElementById("creativeLink");
+        link.setAttribute('href', clickURL);
+        console.log(clickURL);
+      }
+      
+    });
+  </script>
+  </body>
+</html>

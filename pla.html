@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Call Sample</title>
+</head>
+<body>
+  <h1>Page Load Tracking</h1>
+  <p>This page triggers a fetch call to log page load information to the tracking API.</p>
+
+  <script>
+    // Define the function to make the fetch call
+    async function trackPageLoad() {
+      try {
+        const response = await fetch("https://trkapi.impact.com/PageLoad", {
+          headers: {
+            "content-type": "application/json"
+          },
+          referrer: "https://organicbasics.com/",
+          referrerPolicy: "strict-origin-when-cross-origin",
+          body: JSON.stringify({
+            //CampaignId: 17492,
+            //PageUrl: "https://organicbasics.com/?irclickid=zA8QG8RcqxyKTfzR62zwD29ZUkCT1V1cv2M8Q80&irgwc=1&utm_source=Partnerships_Impact&utm_medium=affiliate&utm_campaign=Linkbest&utm_content=4791133&gclid=CjwKCAiAxKy5BhBbEiwAYiW--49ZBq3-Ntk61uzaChN6YNyHmyEQMzwOi5fgP3jVQaps9ydSM_gi8RoCghEQAvD_BwE",
+            EventDate: "2024-11-06T14:56:12.508Z",
+            ReferringUrl: "https://www.google.com/",
+            CustomProfileId: "1881c5be-fa8f-43a6-825c-bb3ae21e1b53",
+            UserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+            ClickId: "zA8QG8RcqxyKTfzR62zwD29ZUkCT1V1cv2M8Q80"
+          }),
+          method: "POST",
+          mode: "cors",
+          credentials: "omit"
+        });
+
+        if (response.ok) {
+          console.log("Page load tracked successfully!");
+        } else {
+          console.error("Failed to track page load", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error making fetch call:", error);
+      }
+    }
+
+    // Trigger the fetch call when the page loads
+    window.addEventListener('DOMContentLoaded', trackPageLoad);
+  </script>
+</body>
+</html>

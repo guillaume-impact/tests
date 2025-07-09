@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Parser</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script>
+function getJsonFromUrl(url) {
+  if(!url) url = location.search;
+  var query = url.substr(0);
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  window.document.getElementById('parsed').innerText = JSON.stringify(result, undefined, 2);
+  return result;
+}
+  </script>
+      <script>
+      //Hash emails with SHA-1
+      function getHash(str, algo = "SHA-1") {
+      let strBuf = new TextEncoder().encode(str);
+      return crypto.subtle.digest(algo, strBuf)
+        .then(hash => {
+          window.hash = hash;
+          // here hash is an arrayBuffer, 
+          // so we'll connvert it to its hex version
+          let result = '';
+          const view = new DataView(hash);
+          for (let i = 0; i < hash.byteLength; i += 4) {
+            result += ('00000000' + view.getUint32(i).toString(16)).slice(-8);
+          }
+          return result;
+        });
+    }
+  </script>
+
+
+    <!-- Page content -->
+      <div id="header"><div><img id="logo" src="../images/logo.png"></div><div id="title">UTT Checker</div></div>
+    <div class="w3-content" style="max-width:2000px;">
+
+        <!-- Main Section -->
+        <div id="input">
+          <form id="form" action="/parser.html" method="get">
+            <label for="queryString">queryString:</label><br>
+            <input type="text" id="rawQueryString" name="rawQueryString" onblur="getJsonFromUrl(value);"><br><span id="parsed"></span><br>
+            <input type="hidden" id="queryString" name="queryString">
+          </form>
+        </div>
+
+        <!-- End Page Content -->
+    </div>
+    <script>
+      var searchParams = new URLSearchParams(window.location.search);console.log(searchParams);
+      var input = document.getElementById('rawQueryString');
+      input.value = String(searchParams);
+      getJsonFromUrl(String(searchParams));
+  </script>
+</body>
+</html>
