@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>conversion</title>
+</head>
+<body>
+<script type="text/javascript">(function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://utt.impactcdn.com/A3689921-b8b5-4bc8-85a4-bbb9c6049d0b65535.js','script','ire',document,window);</script>
+
+<script type="text/javascript">
+  const currentTimestamp = Date.now();
+ire('trackConversion', 36311, {
+     orderId: "order_" + currentTimestamp,
+     currencyCode: "USD",
+    //customerId: "UTTbeforeMobile2",
+    orderPromoCode: "",
+     items: [
+               {
+		   subTotal: 358.00,
+		   category: 'Room booking',
+		   sku: "mopud-shanghai",
+      
+		   quantity: 2,
+               name: "Pudong Shanghai"
+               }/*,
+       {
+		   subTotal: 28.00,
+		   category: 'cat1',
+		   sku: "sku-xfsqdfqqdfsq",
+		   quantity: 3,
+               name: "Product Name 2"
+               }*/
+            ]
+          },
+          {
+          verifySiteDefinitionMatch:false
+          }
+          );
+</script>
+</body></html>
